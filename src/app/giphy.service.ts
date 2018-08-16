@@ -10,12 +10,6 @@ export class GiphyService {
 
   constructor(private http: Http) { }
 
-  getRandomGif(): Observable<Response> {
-    return this.http.get(this.giphyAPIBase +
-    '/random?api_key=' + this.APIKEY)
-    .map((res) => res.json());
-  }
-
   getTrendingGifs(offset, limit): Observable<Response> {
     return this.http.get(this.giphyAPIBase +
     '/trending?api_key=' + this.APIKEY + '&offset=' + offset + '&limit=' + limit)
