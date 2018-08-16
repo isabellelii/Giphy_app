@@ -12,7 +12,7 @@ export class GiphyService {
 
   getRandomGif(): Observable<Response> {
     return this.http.get(this.giphyAPIBase +
-    '/trending?api_key=' + this.APIKEY)
+    '/random?api_key=' + this.APIKEY)
     .map((res) => res.json());
   }
 
@@ -22,7 +22,7 @@ export class GiphyService {
     .map((res) => res.json());
   }
 
-  SearchGifs(offset, limit, text): Observable<Response> {
+  searchGifs(offset, limit, text): Observable<Response> {
     return this.http.get(this.giphyAPIBase +
     '/search?api_key=' + this.APIKEY + '&offset=' + offset + '&limit=' + limit + '&q=' + text)
     .map((res) => res.json());

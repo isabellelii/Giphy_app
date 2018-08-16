@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GiphyService } from '../giphy.service';
-import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-trending',
@@ -11,37 +9,37 @@ import 'rxjs/add/operator/map';
 
 export class TrendingComponent implements OnInit {
 
-  // private offset = 0;
-  // private perPage = 12;
-  // public results = any;
-  // public gifs = Array<any> = [];
-  // public isLoading: boolean = true
-  //
-  //
-  // constructor(private giphyService: GiphyService) {
-  // }
-  //
-  ngOnInit() {
-    // this.getTrendingGifs(this.offset, this.perPage);
+  private offset = 0;
+  private perPage = 12;
+  public results: any;
+  public gifs: Array<any> = [];
+  public isLoading: boolean = true
+
+
+  constructor(private giphyService: GiphyService) {
   }
-  //
-  // getTrendingGifs(offset, limit) {
-  //   this.giphyService.getTrendingGifs(offset, limit).subscribe(
-  //     data() => {
-  //       this.results = data;
-  //       this.gifs = this.gifs.concat(this.results.data);
-  //       this.isLoading = false;
-  //     },
-  //     (err) => console.log('Oops!', err),
-  //     () => console.log('Response', this.results)
-  //   )
-  // }
-  //
-  //
-  // getMore() {
-  //   this.isLoading = true;
-  //   this.offset = this.offset + this.perPage;
-  //   this.getTrendingGifs(this.offset, this.perPage);
-  // }
+
+  ngOnInit() {
+    this.getTrendingGifs(this.offset, this.perPage);
+  }
+
+  getTrendingGifs(offset, limit) {
+    this.giphyService.getTrendingGifs(offset, limit).subscribe(
+      (data) => {
+        this.results = data;
+        this.gifs = this.gifs.concat(this.results.data);
+        this.isLoading = false;
+      },
+      (err) => console.log('Oops!', err),
+      () => console.log('Response', this.results)
+    )
+  }
+
+
+  getMore() {
+    this.isLoading = true;
+    this.offset = this.offset + this.perPage;
+    this.getTrendingGifs(this.offset, this.perPage);
+  }
 
 }

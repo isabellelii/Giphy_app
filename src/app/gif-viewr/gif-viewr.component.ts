@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./gif-viewr.component.css']
 })
 export class GifViewrComponent implements OnInit {
-@Input() imgUrl: string;
+  @Input() imgUrl: string;
 
   constructor() { }
 

@@ -1,6 +1,17 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
 
+body {
+  padding-bottom: 20px;
+
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+
 .home .well{
   width: 70%;
   margin: 0 auto;
@@ -8,4 +19,29 @@
 
 img {
   width: 100%;
+}
+
+
+*, *.before, *:after {
+  box-sizing: border-box !important;
+}
+
+.wrapper {
+  column-width: 18em;
+  column-gap: 1em;
+}
+
+.item {
+  display: inline-block;
+  padding: .25rem;
+  width: 100%;
+}
+
+.well {
+  position: relative;
+  display: block;
+}
+
+h1 {
+  padding-top: 10%;
 }
