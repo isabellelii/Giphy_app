@@ -3,5 +3,5 @@
     <div class="wrapper">
     <app-gif-viewr [imgUrl]="gif.images.original.url" *ngFor="let gif of gifs"></app-gif-viewr>
   </div>
-  <input type="button" value="Load More" class="btn btn-primary btn-block" *ngIf="!isLoading" (click)="getMore()">
+  <input type="button" value="LOAD MORE" class="btn btn-info btn-block" *ngIf="!isLoading" (click)="getMore()">
 </div>
